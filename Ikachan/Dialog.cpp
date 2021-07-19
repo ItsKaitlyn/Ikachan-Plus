@@ -52,11 +52,11 @@ void InitDialog(HWND hDlg)
 {
 	//Window size labels
 	const char* size_names[5] = {
-		"Fullscreen",
-		"Windowed (320x240)",
-		"Windowed (640x480)",
-		"Windowed (960x720)",
-		"Windowed (1280x960)",
+		"全画面表示",
+		"ウィンドウ (320x240)",
+		"ウィンドウ (640x480)",
+		"ウィンドウ (960x720)",
+		"ウィンドウ (1280x960)",
 	};
 
 	//Framerate labels
