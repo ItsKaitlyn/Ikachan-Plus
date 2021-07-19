@@ -122,7 +122,7 @@ int PixelScriptProc(PIX_SCR *ptx, PIYOPIYO_CONTROL *piyocont, BOOL ending)
 						//English numerals
 						c[j] = ptx->data[ptx->p_read++];
 					}
-					else if (ptx->data[ptx->p_read] == '.' || ptx->data[ptx->p_read] == '/' || ptx->data[ptx->p_read] == ',')
+					else if (ptx->data[ptx->p_read] == '.' || ptx->data[ptx->p_read] == '/' || ptx->data[ptx->p_read] == ',' || ptx->data[ptx->p_read] == '-')
 					{
 						//Other specific characters
 						c[j] = ptx->data[ptx->p_read++];
