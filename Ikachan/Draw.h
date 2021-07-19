@@ -72,7 +72,7 @@ extern RECT grcFull;
 void SetClientOffset(int width, int height);
 BOOL Flip_SystemTask(HWND hWnd);
 BOOL FramerateSetup(HWND hWnd, int FramerateSpeed);
-BOOL StartDirectDraw(HWND hWnd, int wndSize);
+BOOL StartDirectDraw(HWND hWnd, int wndSize, int FramerateSpeed);
 void EndDirectDraw(HWND hWnd);
 BOOL MakeSurface_File(const char* name, int surf_no);
 BOOL MakeSurface_Generic(int bxsize, int bysize, int surf_no);

@@ -32,26 +32,10 @@ int scaled_window_height;
 int client_x;
 int client_y;
 
+// 20 -- 50fps
+// 17 -- 60fps
+
 int framespeed = 17;
-
-//Framerate Setup
-BOOL FramerateSetup(HWND hWnd, int FramerateSpeed)
-{
-
-	//Set cooperative level
-	switch (FramerateSpeed)
-	{
-		case FS_50FRAME:
-			framespeed = 20;
-			return TRUE;
-			break;
-		case FS_60FRAME:
-			framespeed = 17;
-			return TRUE;
-			break;
-	}
-return FALSE;
-}
 
 void SetClientOffset(int width, int height)
 {
@@ -88,7 +72,7 @@ BOOL Flip_SystemTask(HWND hWnd)
 }
 
 //DirectDraw interface
-BOOL StartDirectDraw(HWND hWnd, int wndSize)
+BOOL StartDirectDraw(HWND hWnd, int wndSize, int FramerateSpeed)
 {
 	//Create DirectDraw instance
 	if (DirectDrawCreate(NULL, &lpDD, NULL) != DD_OK)
@@ -117,6 +101,18 @@ BOOL StartDirectDraw(HWND hWnd, int wndSize)
 			mag = 3;
 			fullscreen = FALSE;
 			lpDD->SetCooperativeLevel(hWnd, DDSCL_NORMAL);
+			break;
+	}
+
+	//Set framerate speed
+	switch (FramerateSpeed)
+	{
+		case FS_50FRAME:
+			framespeed = 20;
+			break;
+		
+		case FS_60FRAME:
+			framespeed = 17;
 			break;
 	}
 

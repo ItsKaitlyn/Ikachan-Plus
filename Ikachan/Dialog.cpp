@@ -88,6 +88,7 @@ void UseDialog(HWND hDlg)
 {
 	//Set properties from dialog
 	gWndSize = (WND_SIZE)SendDlgItemMessage(hDlg, 1003, CB_GETCURSEL, 2, 0);
+	gFramerateSpeed = (FRAMERATESPEED)SendDlgItemMessage(hDlg, 1004, CB_GETCURSEL, 2, 0);
 
 	//Write options
 	OPTION option;
