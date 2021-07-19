@@ -27,18 +27,18 @@ void PutItem(ITEMS *items)
 	
 	//Draw background and frame
 	PutBitmap3(&grcFull, 0, 0, &grcFull, SURFACE_ID_BACKUP);
-	PutBitmap3(&grcFull, (SURFACE_WIDTH - 176) / 2, (SURFACE_HEIGHT / 2) + 8, &rcFrame, SURFACE_ID_ITEMBOX);
+	PutBitmap3(&grcFull, (WINDOW_WIDTH - 176) / 2, (WINDOW_HEIGHT / 2) + 8, &rcFrame, SURFACE_ID_ITEMBOX);
 
 	//Draw items
 	for (int i = 0; i < MAX_ITEMS; i++)
 	{
 		rcItem.left = (items->code[i] - 1) * 16;
 		rcItem.right = rcItem.left + 16;
-		PutBitmap3(&grcFull, (SURFACE_WIDTH - (16 * MAX_ITEMS)) / 2 + (i * 16), (SURFACE_HEIGHT / 2) + 16, &rcItem, SURFACE_ID_ITEM);
+		PutBitmap3(&grcFull, (WINDOW_WIDTH - (16 * MAX_ITEMS)) / 2 + (i * 16), (WINDOW_HEIGHT / 2) + 16, &rcItem, SURFACE_ID_ITEM);
 	}
 
 	//Draw cursor
-	PutBitmap3(&grcFull, (SURFACE_WIDTH - (16 * MAX_ITEMS)) / 2 + (items->selected_item * 16), (SURFACE_HEIGHT / 2) + 16, &rcCursor, SURFACE_ID_CURSOR);
+	PutBitmap3(&grcFull, (WINDOW_WIDTH - (16 * MAX_ITEMS)) / 2 + (items->selected_item * 16), (WINDOW_HEIGHT / 2) + 16, &rcCursor, SURFACE_ID_CURSOR);
 }
 
 void MoveItem(ITEMS *items, EVENT_SCR *event_scr)

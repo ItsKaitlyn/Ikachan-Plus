@@ -3,7 +3,7 @@
 #include "PiyoPiyo.h"
 #include <windows.h>
 
-#define MAX_PSLINES ((SURFACE_HEIGHT + 24) / 24)
+#define MAX_PSLINES ((WINDOW_HEIGHT + 24) / 24)
 
 struct PIX_SCR
 {

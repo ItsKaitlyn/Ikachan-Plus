@@ -153,11 +153,11 @@ void LoadGenericData()
 	MakeSurface_File("Bmp\\End.bmp", SURFACE_ID_END);
 
 	//Make generic surfaces
-	MakeSurface_Generic(SURFACE_WIDTH, SURFACE_HEIGHT, SURFACE_ID_BACKUP);
+	MakeSurface_Generic(WINDOW_WIDTH, WINDOW_HEIGHT, SURFACE_ID_BACKUP);
 	MakeSurface_Generic(272, 16, SURFACE_ID_TEXT0);
 	MakeSurface_Generic(272, 16, SURFACE_ID_TEXT1);
 	for (int i = 0; i < MAX_PSLINES; i++)
-		MakeSurface_Generic(SURFACE_WIDTH, 16, i + SURFACE_ID_WORDS0);
+		MakeSurface_Generic(WINDOW_WIDTH, 16, i + SURFACE_ID_WORDS0);
 
 	//Load sounds
 	InitSoundObject("DASH", SOUND_ID_DASH);

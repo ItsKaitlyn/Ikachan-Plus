@@ -63,11 +63,11 @@ RECT rcLine = { 0, 0, 272, 16 };
 RECT rcYNYes = { 0, 0, 48, 16 };
 RECT rcYNNo = { 0, 16, 48, 32 };
 RECT rcYNSel = { 48, 0, 112, 32 };
-RECT rcLineClip = { (SURFACE_WIDTH / 2) - 136, SURFACE_HEIGHT - 50, (SURFACE_WIDTH / 2) + 136, SURFACE_HEIGHT - 14 };
+RECT rcLineClip = { (WINDOW_WIDTH / 2) - 136, WINDOW_HEIGHT - 50, (WINDOW_WIDTH / 2) + 136, WINDOW_HEIGHT - 14 };
 
 //Fade dimensions
-#define FADE_WIDTH ((SURFACE_WIDTH + 15) / 16)
-#define FADE_HEIGHT ((SURFACE_HEIGHT + 15) / 16)
+#define FADE_WIDTH ((WINDOW_WIDTH + 15) / 16)
+#define FADE_HEIGHT ((WINDOW_HEIGHT + 15) / 16)
 #define FADE_TIME (FADE_WIDTH + FADE_HEIGHT + 15)
 
 //Fading and other screen effects
@@ -95,14 +95,14 @@ BOOL ProcFade(FADE *fade, FRAME *frame, CARET_SPAWNER *caret_spawner)
 					caretsp->type = 1;
 					caretsp->ani_no = 0;
 					caretsp->num = 2;
-					caretsp->x = frame->x + (SURFACE_WIDTH << 9);
-					caretsp->y = frame->y + (SURFACE_HEIGHT << 9);
+					caretsp->x = frame->x + (WINDOW_WIDTH << 9);
+					caretsp->y = frame->y + (WINDOW_HEIGHT << 9);
 					caretsp->rand_moveright = 0;
 					caretsp->rand_moveleft = 0;
 					caretsp->rand_movedown = 0;
 					caretsp->rand_moveup = 0;
-					caretsp->rand_x = (SURFACE_WIDTH / 2) + 53;
-					caretsp->rand_y = (SURFACE_HEIGHT / 2) + 40;
+					caretsp->rand_x = (WINDOW_WIDTH / 2) + 53;
+					caretsp->rand_y = (WINDOW_HEIGHT / 2) + 40;
 				}
 				int star_i = FindCaretSpawner(caret_spawner);
 				if (star_i != NO_CARET)
@@ -112,14 +112,14 @@ BOOL ProcFade(FADE *fade, FRAME *frame, CARET_SPAWNER *caret_spawner)
 					caretsp->type = 0;
 					caretsp->ani_no = 0;
 					caretsp->num = 2;
-					caretsp->x = frame->x + (SURFACE_WIDTH << 9);
-					caretsp->y = frame->y + (SURFACE_HEIGHT << 9);
+					caretsp->x = frame->x + (WINDOW_WIDTH << 9);
+					caretsp->y = frame->y + (WINDOW_HEIGHT << 9);
 					caretsp->rand_moveright = 0;
 					caretsp->rand_moveleft = 0;
 					caretsp->rand_movedown = 0;
 					caretsp->rand_moveup = 0;
-					caretsp->rand_x = (SURFACE_WIDTH / 2) + 53;
-					caretsp->rand_y = (SURFACE_HEIGHT / 2) + 40;
+					caretsp->rand_x = (WINDOW_WIDTH / 2) + 53;
+					caretsp->rand_y = (WINDOW_HEIGHT / 2) + 40;
 				}
 			}
 			break;
@@ -174,14 +174,14 @@ BOOL ProcFade(FADE *fade, FRAME *frame, CARET_SPAWNER *caret_spawner)
 					caretsp->type = 1;
 					caretsp->ani_no = 0;
 					caretsp->num = 2;
-					caretsp->x = frame->x + (SURFACE_WIDTH << 9);
-					caretsp->y = frame->y + (SURFACE_HEIGHT << 9);
+					caretsp->x = frame->x + (WINDOW_WIDTH << 9);
+					caretsp->y = frame->y + (WINDOW_HEIGHT << 9);
 					caretsp->rand_moveright = 0;
 					caretsp->rand_moveleft = 0;
 					caretsp->rand_movedown = 0;
 					caretsp->rand_moveup = 0;
-					caretsp->rand_x = (SURFACE_WIDTH / 2) + 53;
-					caretsp->rand_y = (SURFACE_HEIGHT / 2) + 40;
+					caretsp->rand_x = (WINDOW_WIDTH / 2) + 53;
+					caretsp->rand_y = (WINDOW_HEIGHT / 2) + 40;
 				}
 				int star_i = FindCaretSpawner(caret_spawner);
 				if (star_i != NO_CARET)
@@ -191,14 +191,14 @@ BOOL ProcFade(FADE *fade, FRAME *frame, CARET_SPAWNER *caret_spawner)
 					caretsp->type = 0;
 					caretsp->ani_no = 0;
 					caretsp->num = 2;
-					caretsp->x = frame->x + (SURFACE_WIDTH << 9);
-					caretsp->y = frame->y + (SURFACE_HEIGHT << 9);
+					caretsp->x = frame->x + (WINDOW_WIDTH << 9);
+					caretsp->y = frame->y + (WINDOW_HEIGHT << 9);
 					caretsp->rand_moveright = 0;
 					caretsp->rand_moveleft = 0;
 					caretsp->rand_movedown = 0;
 					caretsp->rand_moveup = 0;
-					caretsp->rand_x = (SURFACE_WIDTH / 2) + 53;
-					caretsp->rand_y = (SURFACE_HEIGHT / 2) + 40;
+					caretsp->rand_x = (WINDOW_WIDTH / 2) + 53;
+					caretsp->rand_y = (WINDOW_HEIGHT / 2) + 40;
 				}
 			}
 			break;
@@ -424,7 +424,7 @@ void PutEventScriptCursor(EVENT_SCR *ptx)
 		{ 64,  0, 72, 16 },
 		{ 72,  0, 80, 16 },
 	};
-	PutBitmap3(&grcFull, (SURFACE_WIDTH / 2) + 132, SURFACE_HEIGHT - 26, &rcCursor[(ptx->ani_cursor >> 2) % 8], SURFACE_ID_CURSOR);
+	PutBitmap3(&grcFull, (WINDOW_WIDTH / 2) + 132, WINDOW_HEIGHT - 26, &rcCursor[(ptx->ani_cursor >> 2) % 8], SURFACE_ID_CURSOR);
 }
 
 char EventScriptProc(EVENT_SCR *ptx, ITEMS *items, NPCHAR *npc, MAP *map, PIYOPIYO_CONTROL *piyocont, FADE *fade, FRAME *frame)
@@ -516,9 +516,9 @@ char EventScriptProc(EVENT_SCR *ptx, ITEMS *items, NPCHAR *npc, MAP *map, PIYOPI
 			return 0;
 		case 9:
 			//Draw Yes/No dialogue
-			PutBitmap3(&grcFull, ((SURFACE_WIDTH / 2) - 81) + (ptx->select * 96), (SURFACE_HEIGHT / 2) - 27, &rcYNSel, SURFACE_ID_YESNO);
-			PutBitmap3(&grcFull, (SURFACE_WIDTH / 2) - 72, (SURFACE_HEIGHT / 2) - 20, &rcYNYes, SURFACE_ID_YESNO);
-			PutBitmap3(&grcFull, (SURFACE_WIDTH / 2) + 24, (SURFACE_HEIGHT / 2) - 20, &rcYNNo, SURFACE_ID_YESNO);
+			PutBitmap3(&grcFull, ((WINDOW_WIDTH / 2) - 81) + (ptx->select * 96), (WINDOW_HEIGHT / 2) - 27, &rcYNSel, SURFACE_ID_YESNO);
+			PutBitmap3(&grcFull, (WINDOW_WIDTH / 2) - 72, (WINDOW_HEIGHT / 2) - 20, &rcYNYes, SURFACE_ID_YESNO);
+			PutBitmap3(&grcFull, (WINDOW_WIDTH / 2) + 24, (WINDOW_HEIGHT / 2) - 20, &rcYNNo, SURFACE_ID_YESNO);
 			
 			//Choose Yes/No
 			if (gKeyTrg & KEY_LEFT)
@@ -1004,7 +1004,7 @@ char EventScriptProc(EVENT_SCR *ptx, ITEMS *items, NPCHAR *npc, MAP *map, PIYOPI
 			ptx->p_read += 3;
 			piyocont->track = (char)GetEventScriptNo(ptx);
 			piyocont->mode = 1;
-			PutBitmap3(&grcFull, (SURFACE_WIDTH / 2) - 16, (SURFACE_HEIGHT / 2) - 4, &grcLoading, SURFACE_ID_LOADING);
+			PutBitmap3(&grcFull, (WINDOW_WIDTH / 2) - 16, (WINDOW_HEIGHT / 2) - 4, &grcLoading, SURFACE_ID_LOADING);
 			return 0;
 		}
 		if (IS_COMMAND('p','h'))
@@ -1058,9 +1058,9 @@ void PutMsgBox(EVENT_SCR *ptx)
 	if (ptx->msg_box == TRUE)
 	{
 		++ptx->ani_cursor;
-		PutBitmap3(&grcFull, (SURFACE_WIDTH / 2) - 152, SURFACE_HEIGHT - 56, &rcMsgBox, SURFACE_ID_MSGBOX);
-		PutBitmap3(&rcLineClip, (SURFACE_WIDTH / 2) - 136, (SURFACE_HEIGHT - 50) + ptx->ypos_line[0], &rcLine, SURFACE_ID_TEXT0);
-		PutBitmap3(&rcLineClip, (SURFACE_WIDTH / 2) - 136, (SURFACE_HEIGHT - 50) + ptx->ypos_line[1], &rcLine, SURFACE_ID_TEXT1);
+		PutBitmap3(&grcFull, (WINDOW_WIDTH / 2) - 152, WINDOW_HEIGHT - 56, &rcMsgBox, SURFACE_ID_MSGBOX);
+		PutBitmap3(&rcLineClip, (WINDOW_WIDTH / 2) - 136, (WINDOW_HEIGHT - 50) + ptx->ypos_line[0], &rcLine, SURFACE_ID_TEXT0);
+		PutBitmap3(&rcLineClip, (WINDOW_WIDTH / 2) - 136, (WINDOW_HEIGHT - 50) + ptx->ypos_line[1], &rcLine, SURFACE_ID_TEXT1);
 		if (ptx->mode == 5 || ptx->mode == 6 || ptx->mode == 7)
 			PutEventScriptCursor(ptx);
 	}

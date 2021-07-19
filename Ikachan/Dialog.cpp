@@ -51,11 +51,12 @@ BOOL LoadOption(OPTION *option)
 void InitDialog(HWND hDlg)
 {
 	//Window size labels
-	const char* size_names[4] = {
+	const char* size_names[5] = {
 		"Fullscreen",
 		"Windowed (320x240)",
 		"Windowed (640x480)",
 		"Windowed (960x720)",
+		"Windowed (1280x960)",
 	};
 
 	//Framerate labels
@@ -73,7 +74,7 @@ void InitDialog(HWND hDlg)
 		option.framerate = FS_60FRAME;
 	}
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 5; i++)
 		SendDlgItemMessage(hDlg, 1003, CB_ADDSTRING, 0, (LPARAM)size_names[i]);
 	for (int i = 0; i < 2; i++)
 		SendDlgItemMessage(hDlg, 1004, CB_ADDSTRING, 0, (LPARAM)framerate_names[i]);

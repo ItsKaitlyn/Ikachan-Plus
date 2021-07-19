@@ -7,7 +7,7 @@
 
 RECT rcPsIllust = { 0, 0, 426, 240 };
 RECT rcPsEnd = { 0, 0, 48, 24 };
-RECT rcPsLine = { 0, 0, SURFACE_WIDTH, 16 };
+RECT rcPsLine = { 0, 0, WINDOW_WIDTH, 16 };
 
 BOOL ReadPixelScript(PIX_SCR *ptx, const char* path)
 {
@@ -54,14 +54,14 @@ int PixelScriptProc(PIX_SCR *ptx, PIYOPIYO_CONTROL *piyocont, BOOL ending)
 	
 	//Draw illustration
 	if (ending)
-		PutBitmap3(&grcFull, (SURFACE_WIDTH - 426) / 2, (SURFACE_HEIGHT - 240) / 2, &rcPsIllust, SURFACE_ID_STAFF);
+		PutBitmap3(&grcFull, (WINDOW_WIDTH - 426) / 2, (WINDOW_HEIGHT - 240) / 2, &rcPsIllust, SURFACE_ID_STAFF);
 	else
-		PutBitmap3(&grcFull, (SURFACE_WIDTH - 426) / 2, (SURFACE_HEIGHT - 240) / 2, &rcPsIllust, SURFACE_ID_MARUAME);
+		PutBitmap3(&grcFull, (WINDOW_WIDTH - 426) / 2, (WINDOW_HEIGHT - 240) / 2, &rcPsIllust, SURFACE_ID_MARUAME);
 	
 	if (ptx->end)
 	{
 		//If the game's ended, draw "END" text
-		PutBitmap3(&grcFull, (SURFACE_WIDTH / 2) - 24, (SURFACE_HEIGHT / 2) - 14, &rcPsEnd, SURFACE_ID_END);
+		PutBitmap3(&grcFull, (WINDOW_WIDTH / 2) - 24, (WINDOW_HEIGHT / 2) - 14, &rcPsEnd, SURFACE_ID_END);
 		return 1;
 	}
 	else
@@ -81,7 +81,7 @@ int PixelScriptProc(PIX_SCR *ptx, PIYOPIYO_CONTROL *piyocont, BOOL ending)
 			if (ptx->ypos_line[i] / ptx->scale < -24)
 			{
 				//Clear line and move to bottom of screen
-				ptx->ypos_line[i] = SURFACE_HEIGHT * ptx->scale;
+				ptx->ypos_line[i] = WINDOW_HEIGHT * ptx->scale;
 				CortBox2(&rcPsLine, 0x000000, SURFACE_ID_WORDS0 + i);
 
 				//Read new line
@@ -153,7 +153,7 @@ int PixelScriptProc(PIX_SCR *ptx, PIYOPIYO_CONTROL *piyocont, BOOL ending)
 
 		//If the game's ended, draw "END" text
 		if (ptx->end)
-			PutBitmap3(&grcFull, (SURFACE_WIDTH / 2) - 24, (SURFACE_HEIGHT / 2) - 14, &rcPsEnd, SURFACE_ID_END);
+			PutBitmap3(&grcFull, (WINDOW_WIDTH / 2) - 24, (WINDOW_HEIGHT / 2) - 14, &rcPsEnd, SURFACE_ID_END);
 		return 0;
 	}
 }

@@ -15,11 +15,11 @@ POINT gEditorCursor_NPC;
 
 void InitEditor()
 {
-	gEditorCursor_Track.x = (SURFACE_WIDTH / 2) - 16;
-	gEditorCursor_Track.y = (SURFACE_HEIGHT / 2) - 16;
-	SetCursorPos((SURFACE_WIDTH / 2) - 16, (SURFACE_HEIGHT / 2) - 16);
-	gEditorCursor_ScreenPos.x = (SURFACE_WIDTH / 2) - 16;
-	gEditorCursor_ScreenPos.y = (SURFACE_HEIGHT / 2) - 16;
+	gEditorCursor_Track.x = (WINDOW_WIDTH / 2) - 16;
+	gEditorCursor_Track.y = (WINDOW_HEIGHT / 2) - 16;
+	SetCursorPos((WINDOW_WIDTH / 2) - 16, (WINDOW_HEIGHT / 2) - 16);
+	gEditorCursor_ScreenPos.x = (WINDOW_WIDTH / 2) - 16;
+	gEditorCursor_ScreenPos.y = (WINDOW_HEIGHT / 2) - 16;
 }
 
 void PutEditorCursor()

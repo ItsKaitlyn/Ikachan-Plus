@@ -116,8 +116,8 @@ BOOL Game(HWND hWnd)
 	gEditorMode = 0;
 	
 	//Initialize frame
-	frame.x = gMC.x - (SURFACE_WIDTH << 9);
-	frame.y = gMC.y - (SURFACE_HEIGHT << 9);
+	frame.x = gMC.x - (WINDOW_WIDTH << 9);
+	frame.y = gMC.y - (WINDOW_HEIGHT << 9);
 	
 	//Initialize fade
 	fade.mode = FADE_MODE_NONE;
@@ -251,7 +251,7 @@ BOOL Game(HWND hWnd)
 	
 	//Draw loading screen
 	CortBox(&grcFull, 0x000000);
-	PutBitmap3(&grcFull, (SURFACE_WIDTH / 2) - 16, (SURFACE_HEIGHT / 2) - 4, &grcLoading, SURFACE_ID_LOADING);
+	PutBitmap3(&grcFull, (WINDOW_WIDTH / 2) - 16, (WINDOW_HEIGHT / 2) - 4, &grcLoading, SURFACE_ID_LOADING);
 	if (!Flip_SystemTask(hWnd))
 		return TRUE;
 	
@@ -261,8 +261,8 @@ BOOL Game(HWND hWnd)
 	PiyoPiyoControl(&piyocont);
 	
 	//Initialize frame
-	frame.x = gMC.x - (SURFACE_WIDTH << 9);
-	frame.y = gMC.y - (SURFACE_HEIGHT << 9);
+	frame.x = gMC.x - (WINDOW_WIDTH << 9);
+	frame.y = gMC.y - (WINDOW_HEIGHT << 9);
 	frame.mode = FRAME_MODE_MYCHAR;
 	frame.npc = 0;
 	
@@ -371,7 +371,7 @@ BOOL Game(HWND hWnd)
 			}
 			
 			//End frame
-			PutNumber(SURFACE_WIDTH - 48, 0, CountFramePerSecound());
+			PutNumber(WINDOW_WIDTH - 48, 0, CountFramePerSecound());
 			if (!Flip_SystemTask(hWnd))
 				return TRUE;
 			PiyoPiyoProc();

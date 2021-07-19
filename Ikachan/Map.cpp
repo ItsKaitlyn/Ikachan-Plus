@@ -53,8 +53,8 @@ BOOL LoadMapData(const char* path, MAP *map)
 }
 
 //Background drawing
-#define BACK_WIDTH (((SURFACE_WIDTH + 63) / 64) * 2 + 3)
-#define BACK_HEIGHT (((SURFACE_HEIGHT + 63) / 64) * 2 + 3)
+#define BACK_WIDTH (((WINDOW_WIDTH + 63) / 64) * 2 + 3)
+#define BACK_HEIGHT (((WINDOW_HEIGHT + 63) / 64) * 2 + 3)
 
 void PutBack(FRAME *frame)
 {
@@ -73,8 +73,8 @@ void PutBack(FRAME *frame)
 }
 
 //Map drawing
-#define MAP_WIDTH ((SURFACE_WIDTH + 15) / 16 + 1)
-#define MAP_HEIGHT ((SURFACE_HEIGHT + 15) / 16 + 1)
+#define MAP_WIDTH ((WINDOW_WIDTH + 15) / 16 + 1)
+#define MAP_HEIGHT ((WINDOW_HEIGHT + 15) / 16 + 1)
 
 RECT rcParts[8] = {
 	{   0, 0,  16, 16},
@@ -212,24 +212,24 @@ void MoveFrame(FRAME *frame, NPCHAR *npc, MAP *map)
 	}
 	
 	//Move frame towards target
-	if ((frame->x + (SURFACE_WIDTH << 9) - 0x2000) < tx)
-		frame->x += (tx - (frame->x + (SURFACE_WIDTH << 9) - 0x2000)) / 16;
-	if ((frame->x + (SURFACE_WIDTH << 9) - 0x2000) > tx)
-		frame->x += (tx - (frame->x + (SURFACE_WIDTH << 9) - 0x2000)) / 16;
-	if ((frame->y + (SURFACE_HEIGHT << 9) - 0x2000) < ty)
-		frame->y += (ty - (frame->y + (SURFACE_HEIGHT << 9) - 0x2000)) / 16;
-	if ((frame->y + (SURFACE_HEIGHT << 9) - 0x2000) > ty)
-		frame->y += (ty - (frame->y + (SURFACE_HEIGHT << 9) - 0x2000)) / 16;
+	if ((frame->x + (WINDOW_WIDTH << 9) - 0x2000) < tx)
+		frame->x += (tx - (frame->x + (WINDOW_WIDTH << 9) - 0x2000)) / 16;
+	if ((frame->x + (WINDOW_WIDTH << 9) - 0x2000) > tx)
+		frame->x += (tx - (frame->x + (WINDOW_WIDTH << 9) - 0x2000)) / 16;
+	if ((frame->y + (WINDOW_HEIGHT << 9) - 0x2000) < ty)
+		frame->y += (ty - (frame->y + (WINDOW_HEIGHT << 9) - 0x2000)) / 16;
+	if ((frame->y + (WINDOW_HEIGHT << 9) - 0x2000) > ty)
+		frame->y += (ty - (frame->y + (WINDOW_HEIGHT << 9) - 0x2000)) / 16;
 
 	//Keep frame in map bounds
 	if (frame->x < 0)
 		frame->x = 0;
-	if (frame->x > ((map->width - ((SURFACE_WIDTH + 15) / 16)) << 14))
-		frame->x = ((map->width - ((SURFACE_WIDTH + 15) / 16)) << 14);
+	if (frame->x > ((map->width - ((WINDOW_WIDTH + 15) / 16)) << 14))
+		frame->x = ((map->width - ((WINDOW_WIDTH + 15) / 16)) << 14);
 	if (frame->y < 0)
 		frame->y = 0;
-	if (frame->y > ((map->length - ((SURFACE_HEIGHT + 15) / 16)) << 14))
-		frame->y = ((map->length - ((SURFACE_HEIGHT + 15) / 16)) << 14);
+	if (frame->y > ((map->length - ((WINDOW_HEIGHT + 15) / 16)) << 14))
+		frame->y = ((map->length - ((WINDOW_HEIGHT + 15) / 16)) << 14);
 }
 
 void MoveFrameEditor(FRAME *frame, MAP *map)
@@ -273,10 +273,10 @@ void MoveFrameEditor(FRAME *frame, MAP *map)
 	//Keep frame in map bounds
 	if (frame->x < 0)
 		frame->x = 0;
-	if (frame->x > ((map->width - ((SURFACE_WIDTH + 15) / 16)) << 14))
-		frame->x = ((map->width - ((SURFACE_WIDTH + 15) / 16)) << 14);
+	if (frame->x > ((map->width - ((WINDOW_WIDTH + 15) / 16)) << 14))
+		frame->x = ((map->width - ((WINDOW_WIDTH + 15) / 16)) << 14);
 	if (frame->y < 0)
 		frame->y = 0;
-	if (frame->y > ((map->length - ((SURFACE_HEIGHT + 15) / 16)) << 14))
-		frame->y = ((map->length - ((SURFACE_HEIGHT + 15) / 16)) << 14);
+	if (frame->y > ((map->length - ((WINDOW_HEIGHT + 15) / 16)) << 14))
+		frame->y = ((map->length - ((WINDOW_HEIGHT + 15) / 16)) << 14);
 }

@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 //Global cliprect
-RECT grcFull = { 0, 0, SURFACE_WIDTH, SURFACE_HEIGHT };
+RECT grcFull = { 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT };
 
 //Draw state
 int mag;
@@ -85,7 +85,7 @@ BOOL StartDirectDraw(HWND hWnd, int wndSize, int FramerateSpeed)
 			mag = 2;
 			fullscreen = TRUE;
 			lpDD->SetCooperativeLevel(hWnd, DDSCL_FULLSCREEN | DDSCL_EXCLUSIVE);
-			lpDD->SetDisplayMode(SURFACE_WIDTH * mag, SURFACE_HEIGHT * mag, 16);
+			lpDD->SetDisplayMode(WINDOW_WIDTH * mag, WINDOW_HEIGHT * mag, 16);
 			break;
 		case WS_320x240:
 			mag = 1;
@@ -99,6 +99,11 @@ BOOL StartDirectDraw(HWND hWnd, int wndSize, int FramerateSpeed)
 			break;
 		case WS_960x720:
 			mag = 3;
+			fullscreen = FALSE;
+			lpDD->SetCooperativeLevel(hWnd, DDSCL_NORMAL);
+			break;
+		case WS_1280x960:
+			mag = 4;
 			fullscreen = FALSE;
 			lpDD->SetCooperativeLevel(hWnd, DDSCL_NORMAL);
 			break;
@@ -119,11 +124,11 @@ BOOL StartDirectDraw(HWND hWnd, int wndSize, int FramerateSpeed)
 	//Initialize window rects and sizes
 	backbuffer_rect.left = 0;
 	backbuffer_rect.top = 0;
-	backbuffer_rect.right = SURFACE_WIDTH * mag;
-	backbuffer_rect.bottom = SURFACE_HEIGHT * mag;
+	backbuffer_rect.right = WINDOW_WIDTH * mag;
+	backbuffer_rect.bottom = WINDOW_HEIGHT * mag;
 
-	scaled_window_width = SURFACE_WIDTH * mag;
-	scaled_window_height = SURFACE_HEIGHT * mag;
+	scaled_window_width = WINDOW_WIDTH * mag;
+	scaled_window_height = WINDOW_HEIGHT * mag;
 
 	//Create screen buffers
 	DDSURFACEDESC ddsd;
@@ -143,8 +148,8 @@ BOOL StartDirectDraw(HWND hWnd, int wndSize, int FramerateSpeed)
 	ddsd.dwSize = sizeof(DDSURFACEDESC);
 	ddsd.dwFlags = DDSD_CAPS | DDSD_HEIGHT | DDSD_WIDTH;
 	ddsd.ddsCaps.dwCaps = DDSCAPS_OFFSCREENPLAIN;
-	ddsd.dwWidth = SURFACE_WIDTH * mag;
-	ddsd.dwHeight = SURFACE_HEIGHT * mag;
+	ddsd.dwWidth = WINDOW_WIDTH * mag;
+	ddsd.dwHeight = WINDOW_HEIGHT * mag;
 
 	if (lpDD->CreateSurface(&ddsd, &backbuffer, NULL) != DD_OK)
 		return FALSE;
@@ -387,6 +392,10 @@ void InitTextObject(const char* name)
 		case 3:
 			height = 28;
 			width = 14;
+			break;
+		case 4:
+			height = 36;
+			width = 18;
 			break;
 	}
 

@@ -24,6 +24,7 @@ enum WND_SIZE
 	WS_320x240,
 	WS_640x480,
 	WS_960x720,
+	WS_1280x960,
 };
 extern WND_SIZE gWndSize;
 
