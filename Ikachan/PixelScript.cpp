@@ -54,8 +54,10 @@ int PixelScriptProc(PIX_SCR *ptx, PIYOPIYO_CONTROL *piyocont, BOOL ending)
 	
 	//Draw illustration
 	if (ending)
+		//Draw Staff Credits
 		PutBitmap3(&grcFull, (WINDOW_WIDTH - 480) / 2, (WINDOW_HEIGHT - 270) / 2, &rcPsIllust, SURFACE_ID_STAFF);
 	else
+		//Draw Start-Game "MaruAme"
 		PutBitmap3(&grcFull, (WINDOW_WIDTH - 480) / 2, (WINDOW_HEIGHT - 270) / 2, &rcPsIllust, SURFACE_ID_MARUAME);
 	
 	if (ptx->end)
