@@ -5,7 +5,7 @@
 #define IS_COMMAND1(c1) (ptx->data[ptx->p_read] == '<' && ptx->data[ptx->p_read + 1] == (c1))
 #define IS_COMMAND2(c1, c2) (ptx->data[ptx->p_read] == '<' && ptx->data[ptx->p_read + 1] == (c1) && ptx->data[ptx->p_read + 2] == (c2))
 
-RECT rcPsIllust = { 0, 0, 426, 240 };
+RECT rcPsIllust = { 0, 0, 480, 270 };
 RECT rcPsEnd = { 0, 0, 48, 24 };
 RECT rcPsLine = { 0, 0, WINDOW_WIDTH, 16 };
 
@@ -50,13 +50,13 @@ void LoadPixelScript(PIX_SCR *ptx, const char* path, char scale)
 
 int PixelScriptProc(PIX_SCR *ptx, PIYOPIYO_CONTROL *piyocont, BOOL ending)
 {
-	TCHAR c[44];
+	char c[44];
 	
 	//Draw illustration
 	if (ending)
-		PutBitmap3(&grcFull, (WINDOW_WIDTH - 426) / 2, (WINDOW_HEIGHT - 240) / 2, &rcPsIllust, SURFACE_ID_STAFF);
+		PutBitmap3(&grcFull, (WINDOW_WIDTH - 480) / 2, (WINDOW_HEIGHT - 270) / 2, &rcPsIllust, SURFACE_ID_STAFF);
 	else
-		PutBitmap3(&grcFull, (WINDOW_WIDTH - 426) / 2, (WINDOW_HEIGHT - 240) / 2, &rcPsIllust, SURFACE_ID_MARUAME);
+		PutBitmap3(&grcFull, (WINDOW_WIDTH - 480) / 2, (WINDOW_HEIGHT - 270) / 2, &rcPsIllust, SURFACE_ID_MARUAME);
 	
 	if (ptx->end)
 	{

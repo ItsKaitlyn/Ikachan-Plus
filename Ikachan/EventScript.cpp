@@ -429,7 +429,7 @@ void PutEventScriptCursor(EVENT_SCR *ptx)
 
 char EventScriptProc(EVENT_SCR *ptx, ITEMS *items, NPCHAR *npc, MAP *map, PIYOPIYO_CONTROL *piyocont, FADE *fade, FRAME *frame)
 {
-	TCHAR c[3] = { 0 };
+	char c[3] = { 0 };
 
 	switch (ptx->mode)
 	{

@@ -1,6 +1,8 @@
 #pragma once
 #include <windows.h>
 
+#include "WindowsWrapper.h"
+
 //Keys
 #define MOUSE_RIGHT (0x00000001)
 #define MOUSE_LEFT  (0x00000002)
@@ -36,11 +38,19 @@ enum FRAMERATESPEED
 };
 extern FRAMERATESPEED gFramerateSpeed;
 
+//Framerate Speed
+enum ResolutionScale
+{
+	RS_NORMAL,
+	RS_PLUS,
+};
+extern ResolutionScale gResolutionScale;
+
 //Windows objects
 extern HWND ghWnd;
 
 //Filepath
-extern TCHAR gModulePath[MAX_PATH];
+extern char gModulePath[MAX_PATH];
 
 int Random(int min, int max);
 BOOL SystemTask();

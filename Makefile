@@ -21,24 +21,24 @@ ifeq ($(STATIC), 1)
 endif
 
 SOURCES = \
-	Ikachan/Boss \
-	Ikachan/Dialog \
-	Ikachan/Draw \
-	Ikachan/Editor \
-	Ikachan/Effect \
-	Ikachan/EventScript \
-	Ikachan/Flags \
-	Ikachan/Game \
-	Ikachan/Generic \
-	Ikachan/Item \
-	Ikachan/Map \
-	Ikachan/NpChar \
-	Ikachan/Opening \
-	Ikachan/PixelScript \
-	Ikachan/PiyoPiyo \
-	Ikachan/Player \
+	Ikachan/System \
 	Ikachan/Sound \
-	Ikachan/System 
+	Ikachan/Player \
+	Ikachan/PiyoPiyo \
+	Ikachan/PixelScript \
+	Ikachan/Opening \
+	Ikachan/NpChar \
+	Ikachan/Map \
+	Ikachan/Item \
+	Ikachan/Generic \
+	Ikachan/Game \
+	Ikachan/Flags \
+	Ikachan/EventScript \
+	Ikachan/Effect \
+	Ikachan/Editor \
+	Ikachan/Draw \
+	Ikachan/Dialog \
+	Ikachan/Boss 
 
 OBJECTS = $(addprefix obj/$(FILENAME)/, $(addsuffix .o, $(SOURCES)))
 DEPENDENCIES = $(addprefix obj/$(FILENAME)/, $(addsuffix .o.d, $(SOURCES)))
