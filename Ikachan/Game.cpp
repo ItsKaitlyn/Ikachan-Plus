@@ -43,7 +43,7 @@ void GetTrg()
 		gMouseTrg2 = gMouse;
 }
 
-DWORD CountFramePerSecound()
+static unsigned long CountFramePerSecound()
 {
 	unsigned long current_tick;
 	static BOOL first = TRUE;
@@ -130,7 +130,7 @@ BOOL Game(HWND hWnd)
 		caret[i].cond = FALSE;
 	
 	//Load fade surface here for some reason
-	MakeSurface_File("Bmp\\Fade.bmp", SURFACE_ID_FADE);
+	MakeSurface_File("data\\Bmp\\Fade.bmp", SURFACE_ID_FADE);
 	
 	//Start game (start in opening)
 	char mode = GAMEMODE_OPENING;
@@ -165,12 +165,12 @@ BOOL Game(HWND hWnd)
 	}
 	
 	//Load map event and data
-	sprintf(path, "%s\\%s", gModulePath, "Event.ptx");
+	sprintf(path, "%s\\%s", gModulePath, "data\\Event.ptx");
 	if (!ReadEventScript(path, &event_scr))
 		return TRUE;
 	DebugPutText((const char*)event_scr.data);
 	
-	sprintf(path, "%s\\%s", gModulePath, "Bmp\\Map1.bmp");
+	sprintf(path, "%s\\%s", gModulePath, "data\\Bmp\\Stage\\Map1.bmp");
 	if (!LoadMapData(path, &map))
 		return TRUE;
 	
@@ -222,7 +222,7 @@ BOOL Game(HWND hWnd)
 	}
 	
 	//Load intro script
-	sprintf(path, "%s\\%s", gModulePath, "Words.ptx");
+	sprintf(path, "%s\\%s", gModulePath, "data\\Words.ptx");
 	LoadPixelScript(&pix_scr, path, 2);
 	
 	//Intro
@@ -371,7 +371,11 @@ BOOL Game(HWND hWnd)
 			}
 			
 			//End frame
-			PutNumber(WINDOW_WIDTH - 48, 0, CountFramePerSecound());
+			//Not in the original Ikachan, but how Cave Story does the framerate display.
+			if (IsKeyFile("fps"))
+			{
+				PutNumber(WINDOW_WIDTH - 48, 0, CountFramePerSecound());
+			}
 			if (!Flip_SystemTask(hWnd))
 				return TRUE;
 			PiyoPiyoProc();
@@ -445,7 +449,7 @@ BOOL Game(HWND hWnd)
 	PiyoPiyoControl(&piyocont);
 	
 	//Load staff script
-	sprintf(path, "%s\\%s", gModulePath, "Staff.ptx");
+	sprintf(path, "%s\\%s", gModulePath, "data\\Staff.ptx");
 	LoadPixelScript(&pix_scr, path, 4);
 	
 	//Staff

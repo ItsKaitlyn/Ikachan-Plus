@@ -263,12 +263,12 @@ void ChangePiyoPiyoVolume(PIYOPIYO_CONTROL *piyocont)
 //PiyoPiyo control
 char* gMusicList[6] =
 {
-	"Pmd\\Ikachan.pmd",
-	"Pmd\\Magirete.pmd",
-	"Pmd\\Buriki.pmd",
-	"Pmd\\Mizuno.pmd",
-	"Pmd\\Quake.pmd",
-	"Pmd\\Tidepool.pmd",
+	"data\\Pmd\\Ikachan.pmd",
+	"data\\Pmd\\Magirete.pmd",
+	"data\\Pmd\\Buriki.pmd",
+	"data\\Pmd\\Mizuno.pmd",
+	"data\\Pmd\\Quake.pmd",
+	"data\\Pmd\\Tidepool.pmd",
 };
 
 void PiyoPiyoControl(PIYOPIYO_CONTROL *piyocont)

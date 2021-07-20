@@ -8,6 +8,7 @@ struct OPTION
 	int garbage; //unused and not written to
 	int wnd_size;
 	int framerate;
+	int font_name;
 };
 
 const char* gOptionName = "Option.bin";
@@ -53,10 +54,10 @@ void InitDialog(HWND hDlg)
 	//Window size labels
 	const char* size_names[5] = {
 		"Fullscreen",
-		"Windowed (320x240)",
-		"Windowed (640x480)",
-		"Windowed (960x720)",
-		"Windowed (1280x960)",
+		"Windowed (480x270)",
+		"Windowed (960x540)",
+		"Windowed (1440x810)",
+		"Windowed (1920x1080)",
 	};
 
 	//Framerate labels

@@ -12,7 +12,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="../VS2003/Debug"
+			OutputDirectory="../game"
 			IntermediateDirectory="../VS2003/Debug"
 			ConfigurationType="1"
 			CharacterSet="0">
@@ -62,7 +62,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="../VS2003/Release"
+			OutputDirectory="../game"
 			IntermediateDirectory="../VS2003/Release"
 			ConfigurationType="1"
 			CharacterSet="0">
@@ -133,6 +133,9 @@
 				RelativePath="Effect.cpp">
 			</File>
 			<File
+				RelativePath="Escape.cpp">
+			</File>
+			<File
 				RelativePath="EventScript.cpp">
 			</File>
 			<File
@@ -190,6 +193,9 @@
 			</File>
 			<File
 				RelativePath="Effect.h">
+			</File>
+			<File
+				RelativePath="Escape.h">
 			</File>
 			<File
 				RelativePath="EventScript.h">

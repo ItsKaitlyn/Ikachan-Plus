@@ -856,7 +856,7 @@ BOOL ReloadNpChar(NPCHAR *npc)
 {
 	//Open NPChar.dat
 	char path[MAX_PATH];
-	sprintf(path, "%s\\%s", gModulePath, "NPChar.dat");
+	sprintf(path, "%s\\%s", gModulePath, "data\\NPChar.dat");
 	
 	FILE *fp = fopen(path, "rb");
 	if (fp == NULL)

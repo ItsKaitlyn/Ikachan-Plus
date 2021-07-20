@@ -4,6 +4,22 @@
 #include "PixelScript.h"
 #include <stdio.h>
 
+BOOL IsKeyFile(const char *name)
+{
+	char path[MAX_PATH];
+	FILE *fp;
+
+	sprintf(path, "%s\\%s", gModulePath, name);
+
+	fp = fopen(path, "rb");
+
+	if (fp == NULL)
+		return FALSE;
+
+	fclose(fp);
+	return TRUE;
+}
+
 void GetCompileDate(int *year, int *month, int *day)
 {
 	int i;
@@ -111,46 +127,46 @@ BOOL OpenSoundVolume(HWND hWnd)
 void LoadGenericData()
 {
 	//Load surfaces
-	MakeSurface_File("Bmp\\MyChar.bmp", SURFACE_ID_MYCHAR);
-	MakeSurface_File("Bmp\\MyChar2.bmp", SURFACE_ID_MYCHAR2);
-	MakeSurface_File("Bmp\\MyChar3.bmp", SURFACE_ID_MYCHAR3);
-	MakeSurface_File("Bmp\\MsgBox.bmp", SURFACE_ID_MSGBOX);
-	MakeSurface_File("Bmp\\Cursor.bmp", SURFACE_ID_CURSOR);
-	MakeSurface_File("Bmp\\YesNo.bmp", SURFACE_ID_YESNO);
-	MakeSurface_File("Bmp\\Status.bmp", SURFACE_ID_STATUS);
-	MakeSurface_File("Bmp\\Figure.bmp", SURFACE_ID_FIGURE);
-	MakeSurface_File("Bmp\\Item.bmp", SURFACE_ID_ITEM);
-	MakeSurface_File("Bmp\\ItemBox.bmp", SURFACE_ID_ITEMBOX);
-	MakeSurface_File("Bmp\\Loading.bmp", SURFACE_ID_LOADING);
-	MakeSurface_File("Bmp\\Stage\\PrtBack.bmp", SURFACE_ID_PRTBACK);
-	MakeSurface_File("Bmp\\Stage\\PrtFilt.bmp", SURFACE_ID_PRTFILT);
-	MakeSurface_File("Bmp\\Stage\\PrtDir.bmp", SURFACE_ID_PRTDIR);
-	MakeSurface_File("Bmp\\Stage\\PrtBlock.bmp", SURFACE_ID_PRTBLOCK);
-	MakeSurface_File("Bmp\\Stage\\PrtDmg.bmp", SURFACE_ID_PRTDMG);
-	MakeSurface_File("Bmp\\Stage\\PrtItem.bmp", SURFACE_ID_PRTITEM);
-	MakeSurface_File("Bmp\\Stage\\PrtSnack.bmp", SURFACE_ID_PRTSNACK);
-	MakeSurface_File("Bmp\\Back.bmp", SURFACE_ID_BACK);
-	MakeSurface_File("Bmp\\Hari.bmp", SURFACE_ID_HARI);
-	MakeSurface_File("Bmp\\Isogin.bmp", SURFACE_ID_ISOGIN);
-	MakeSurface_File("Bmp\\Kani.bmp", SURFACE_ID_KANI);
-	MakeSurface_File("Bmp\\Sleep.bmp", SURFACE_ID_SLEEP);
-	MakeSurface_File("Bmp\\Chibi.bmp", SURFACE_ID_CHIBI);
-	MakeSurface_File("Bmp\\Hoshi.bmp", SURFACE_ID_HOSHI);
-	MakeSurface_File("Bmp\\Dum.bmp", SURFACE_ID_DUM);
-	MakeSurface_File("Bmp\\Carry.bmp", SURFACE_ID_CARRY);
-	MakeSurface_File("Bmp\\Juel.bmp", SURFACE_ID_JUEL);
-	MakeSurface_File("Bmp\\Ufo.bmp", SURFACE_ID_UFO);
-	MakeSurface_File("Bmp\\Ironhead.bmp", SURFACE_ID_IRONHEAD);
-	MakeSurface_File("Bmp\\Star.bmp", SURFACE_ID_STAR);
-	MakeSurface_File("Bmp\\Bubble.bmp", SURFACE_ID_BUBBLE);
-	MakeSurface_File("Bmp\\Damage.bmp", SURFACE_ID_DAMAGE);
-	MakeSurface_File("Bmp\\LevelUp.bmp", SURFACE_ID_LEVELUP);
-	MakeSurface_File("Bmp\\Editor.bmp", SURFACE_ID_EDITOR);
-	MakeSurface_File("Bmp\\NpcType.bmp", SURFACE_ID_NPCTYPE);
-	MakeSurface_File("Bmp\\Opening.bmp", SURFACE_ID_OPENING);
-	MakeSurface_File("Bmp\\MaruAme.bmp", SURFACE_ID_MARUAME);
-	MakeSurface_File("Bmp\\Staff.bmp", SURFACE_ID_STAFF);
-	MakeSurface_File("Bmp\\End.bmp", SURFACE_ID_END);
+	MakeSurface_File("data\\Bmp\\Player\\MyChar.bmp", SURFACE_ID_MYCHAR);
+	MakeSurface_File("data\\Bmp\\Player\\MyChar2.bmp", SURFACE_ID_MYCHAR2);
+	MakeSurface_File("data\\Bmp\\Player\\MyChar3.bmp", SURFACE_ID_MYCHAR3);
+	MakeSurface_File("data\\Bmp\\MsgBox.bmp", SURFACE_ID_MSGBOX);
+	MakeSurface_File("data\\Bmp\\Editor\\Cursor.bmp", SURFACE_ID_CURSOR);
+	MakeSurface_File("data\\Bmp\\Text\\YesNo.bmp", SURFACE_ID_YESNO);
+	MakeSurface_File("data\\Bmp\\Text\\Status.bmp", SURFACE_ID_STATUS);
+	MakeSurface_File("data\\Bmp\\Text\\Figure.bmp", SURFACE_ID_FIGURE);
+	MakeSurface_File("data\\Bmp\\Item.bmp", SURFACE_ID_ITEM);
+	MakeSurface_File("data\\Bmp\\ItemBox.bmp", SURFACE_ID_ITEMBOX);
+	MakeSurface_File("data\\Bmp\\Text\\Loading.bmp", SURFACE_ID_LOADING);
+	MakeSurface_File("data\\Bmp\\Stage\\PrtBack.bmp", SURFACE_ID_PRTBACK);
+	MakeSurface_File("data\\Bmp\\Stage\\PrtFilt.bmp", SURFACE_ID_PRTFILT);
+	MakeSurface_File("data\\Bmp\\Stage\\PrtDir.bmp", SURFACE_ID_PRTDIR);
+	MakeSurface_File("data\\Bmp\\Stage\\PrtBlock.bmp", SURFACE_ID_PRTBLOCK);
+	MakeSurface_File("data\\Bmp\\Stage\\PrtDmg.bmp", SURFACE_ID_PRTDMG);
+	MakeSurface_File("data\\Bmp\\Stage\\PrtItem.bmp", SURFACE_ID_PRTITEM);
+	MakeSurface_File("data\\Bmp\\Stage\\PrtSnack.bmp", SURFACE_ID_PRTSNACK);
+	MakeSurface_File("data\\Bmp\\Back.bmp", SURFACE_ID_BACK);
+	MakeSurface_File("data\\Bmp\\Npc\\Hari.bmp", SURFACE_ID_HARI);
+	MakeSurface_File("data\\Bmp\\Npc\\Isogin.bmp", SURFACE_ID_ISOGIN);
+	MakeSurface_File("data\\Bmp\\Npc\\Kani.bmp", SURFACE_ID_KANI);
+	MakeSurface_File("data\\Bmp\\Npc\\Sleep.bmp", SURFACE_ID_SLEEP);
+	MakeSurface_File("data\\Bmp\\Npc\\Chibi.bmp", SURFACE_ID_CHIBI);
+	MakeSurface_File("data\\Bmp\\Npc\\Hoshi.bmp", SURFACE_ID_HOSHI);
+	MakeSurface_File("data\\Bmp\\Npc\\Dum.bmp", SURFACE_ID_DUM);
+	MakeSurface_File("data\\Bmp\\Npc\\Carry.bmp", SURFACE_ID_CARRY);
+	MakeSurface_File("data\\Bmp\\Npc\\Juel.bmp", SURFACE_ID_JUEL);
+	MakeSurface_File("data\\Bmp\\Npc\\Ufo.bmp", SURFACE_ID_UFO);
+	MakeSurface_File("data\\Bmp\\Npc\\Ironhead.bmp", SURFACE_ID_IRONHEAD);
+	MakeSurface_File("data\\Bmp\\Star.bmp", SURFACE_ID_STAR);
+	MakeSurface_File("data\\Bmp\\Bubble.bmp", SURFACE_ID_BUBBLE);
+	MakeSurface_File("data\\Bmp\\Text\\Damage.bmp", SURFACE_ID_DAMAGE);
+	MakeSurface_File("data\\Bmp\\Text\\LevelUp.bmp", SURFACE_ID_LEVELUP);
+	MakeSurface_File("data\\Bmp\\Editor\\Editor.bmp", SURFACE_ID_EDITOR);
+	MakeSurface_File("data\\Bmp\\Editor\\NpcType.bmp", SURFACE_ID_NPCTYPE);
+	MakeSurface_File("data\\Bmp\\Opening.bmp", SURFACE_ID_OPENING);
+	MakeSurface_File("data\\Bmp\\Art\\MaruAme.bmp", SURFACE_ID_MARUAME);
+	MakeSurface_File("data\\Bmp\\Art\\Staff.bmp", SURFACE_ID_STAFF);
+	MakeSurface_File("data\\Bmp\\Text\\End.bmp", SURFACE_ID_END);
 
 	//Make generic surfaces
 	MakeSurface_Generic(WINDOW_WIDTH, WINDOW_HEIGHT, SURFACE_ID_BACKUP);

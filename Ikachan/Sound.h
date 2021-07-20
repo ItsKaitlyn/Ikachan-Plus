@@ -29,6 +29,9 @@ enum SOUND_MODE
 	SOUND_MODE_PLAY = 1
 };
 
+
+unsigned char* LoadFileToMemory(const char *file_path, size_t *file_size);
+
 BOOL InitDirectSound(HWND hwnd);
 void EndDirectSound();
 void ReleaseSoundObject(int no);

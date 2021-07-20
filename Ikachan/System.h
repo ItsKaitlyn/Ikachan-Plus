@@ -15,6 +15,10 @@
 #define KEY_X     (0x00000020)
 #define KEY_Z     (0x00000040)
 #define KEY_S     (0x00000080)
+//add escape keys that totally aren't from cave story
+#define KEY_ESCAPE (0x000000100)
+#define KEY_F1 (0x00000200)
+#define KEY_F2 (0x00000400)
 
 extern DWORD gKey, gKeyTrg;
 extern DWORD gMouse, gMouseTrg, gMouseTrg2;
@@ -23,10 +27,10 @@ extern DWORD gMouse, gMouseTrg, gMouseTrg2;
 enum WND_SIZE
 {
 	WS_FULLSCREEN,
-	WS_320x240,
-	WS_640x480,
-	WS_960x720,
-	WS_1280x960,
+	WS_480x270,
+	WS_960x540,
+	WS_1440x810,
+	WS_1920x1080,
 };
 extern WND_SIZE gWndSize;
 

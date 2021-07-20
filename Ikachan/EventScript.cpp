@@ -281,7 +281,7 @@ BOOL SaveRecord(ITEMS *items, MAP *map, NPCHAR *npc)
 {
 	//Open file
 	char path[MAX_PATH];
-	sprintf(path, "%s\\%s", gModulePath, "Save\\Ika.rec");
+	sprintf(path, "%s\\%s", gModulePath, "Ika.rec");
 	
 	FILE *fp = fopen(path, "wb");
 	if (fp == NULL)
@@ -328,7 +328,7 @@ BOOL LoadRecord(ITEMS *items, MAP *map, NPCHAR *npc)
 {
 	//Open file
 	char path[MAX_PATH];
-	sprintf(path, "%s\\%s", gModulePath, "Save\\Ika.rec");
+	sprintf(path, "%s\\%s", gModulePath, "Ika.rec");
 	
 	FILE *fp = fopen(path, "rb");
 	if (fp == NULL)
@@ -636,6 +636,8 @@ char EventScriptProc(EVENT_SCR *ptx, ITEMS *items, NPCHAR *npc, MAP *map, PIYOPI
 			case ',':
 			case '.':
 			case '/':
+			case '[':
+			case ']':
 			case ' ':
 			case '?':
 			case '!':

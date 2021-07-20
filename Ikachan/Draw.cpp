@@ -87,22 +87,22 @@ BOOL StartDirectDraw(HWND hWnd, int wndSize, int FramerateSpeed)
 			lpDD->SetCooperativeLevel(hWnd, DDSCL_FULLSCREEN | DDSCL_EXCLUSIVE);
 			lpDD->SetDisplayMode(WINDOW_WIDTH * mag, WINDOW_HEIGHT * mag, 16);
 			break;
-		case WS_320x240:
+		case WS_480x270:
 			mag = 1;
 			fullscreen = FALSE;
 			lpDD->SetCooperativeLevel(hWnd, DDSCL_NORMAL);
 			break;
-		case WS_640x480:
+		case WS_960x540:
 			mag = 2;
 			fullscreen = FALSE;
 			lpDD->SetCooperativeLevel(hWnd, DDSCL_NORMAL);
 			break;
-		case WS_960x720:
+		case WS_1440x810:
 			mag = 3;
 			fullscreen = FALSE;
 			lpDD->SetCooperativeLevel(hWnd, DDSCL_NORMAL);
 			break;
-		case WS_1280x960:
+		case WS_1920x1080:
 			mag = 4;
 			fullscreen = FALSE;
 			lpDD->SetCooperativeLevel(hWnd, DDSCL_NORMAL);
@@ -400,7 +400,7 @@ void InitTextObject(const char* name)
 	}
 
 	//Create font object
-	font = CreateFont(height, width, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, FIXED_PITCH | FF_DONTCARE, name);
+	font = CreateFontA(height, width, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_TT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, FIXED_PITCH | FF_DONTCARE, name);
 }
 
 void PutText(int x, int y, const char* text, DWORD color, BOOL unk)

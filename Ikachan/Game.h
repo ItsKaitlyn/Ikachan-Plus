@@ -3,4 +3,6 @@
 
 extern RECT grcLoading;
 
+void GetTrg();
+
 BOOL Game(HWND hWnd);

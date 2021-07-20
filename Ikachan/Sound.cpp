@@ -11,6 +11,43 @@ LPDIRECTSOUNDBUFFER lpPRIMARYBUFFER;
 #define SE_MAX 512
 LPDIRECTSOUNDBUFFER lpSECONDARYBUFFER[SE_MAX];
 
+unsigned char* LoadFileToMemory(const char *file_path, size_t *file_size)
+{
+	unsigned char *buffer = NULL;
+
+	FILE *file = fopen(file_path, "rb");
+
+	if (file != NULL)
+	{
+		if (!fseek(file, 0, SEEK_END))
+		{
+			const long _file_size = ftell(file);
+
+			if (_file_size >= 0)
+			{
+				rewind(file);
+				buffer = (unsigned char*)malloc(_file_size);
+
+				if (buffer != NULL)
+				{
+					if (fread(buffer, _file_size, 1, file) == 1)
+					{
+						fclose(file);
+						*file_size = (size_t)_file_size;
+						return buffer;
+					}
+
+					free(buffer);
+				}
+			}
+		}
+
+		fclose(file);
+	}
+
+	return NULL;
+}
+
 //DirectSound interface
 BOOL InitDirectSound(HWND hwnd)
 {
