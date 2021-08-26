@@ -12,3 +12,6 @@ If possible, a portable build of this would be appreciated. I'm not sure how to 
 # Original Game
 Decompilation (what this is based off of): https://github.com/cuckydev/Ikachan
 Pixel's website: https://studiopixel.jp/archives/index.html
+
+# Releases
+https://itskaitlyn.github.io/games/ikachan/
